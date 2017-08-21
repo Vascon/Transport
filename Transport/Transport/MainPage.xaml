@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="Transport.MainPage">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout BackgroundColor="White" Padding = "0" Margin="0" Spacing = "0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <SearchBar/>
+                <maps:Map x:Name="map"
+                      MyLocationEnabled="True"
+                      VerticalOptions="FillAndExpand"
+                       IsShowingUser="True"/>
+
+            </StackLayout>
+
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Padding = "0" Margin="0" Spacing = "0">
+                <SearchBar BackgroundColor="White" x:Name="addressSearch" Placeholder="Адрес"/>
+                <StackLayout BackgroundColor="White" x:Name="addressListViewStackLayout" HeightRequest="0" Padding = "0" Margin="0" Spacing = "0" IsVisible="{Binding IsBusy}"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0,0.5,-1,-1">
+                    <ListView x:Name="addressListView" HeightRequest="0" Margin="0" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <StackLayout IsVisible="{Binding IsBusy}" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <ActivityIndicator x:Name="ActI" IsRunning="{Binding IsBusy}" Color ="#fbb240"/>
+            </StackLayout>
+
+
+            <Image IsVisible="False" AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0,1,-1,-1"
+                x:Name="ShowListButton" 
+                Scale="0.6"
+                Source="listbutton.png"
+                HorizontalOptions="End"
+                Margin="5"/>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
