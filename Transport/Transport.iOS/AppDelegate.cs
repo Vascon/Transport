@@ -10,7 +10,9 @@ namespace Transport.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
-			LoadApplication(new App());
+            global::Xamarin.FormsGoogleMaps.Init("AIzaSyDPHKQm19PW2cwtfyBuPbLl0-1LEIlCM7w");
+            //AIzaSyB4NkBRISt78_mirRUotrxdNk5tMXdTFtA
+            LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
 		}
